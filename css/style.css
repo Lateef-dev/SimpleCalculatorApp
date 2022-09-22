@@ -38,22 +38,19 @@ body {
     font-family: 'League Spartan', sans-serif;
     font-size: 3.2rem;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
     color: var(--color--toggle--1);
-}
-
-.hidden {
-    display: none;
 }
 
 .container {
     min-width: 33%;
-    width: 100%;
-    max-width: 30rem;
+    max-width: 35rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.6rem;
 }
 
 .container__top--title {
@@ -77,44 +74,6 @@ body {
     font-size: 1.5rem;
 }
 
-.right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1rem;
-    width: 100%;
-    padding: .8rem;
-}
-
-.buttons {
-    width: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--color--toggle--1);
-    padding: .4rem;
-    border-radius: 1.5rem;
-}
-
-.btn {
-    background-color: var(--color--key--red);
-    outline: none;
-    border: none;
-    width: 1.3rem;
-    height: 1.3rem;
-    border-radius: 50%;
-    position: relative;
-    text-align: center;
-}
-
-
 .right__container {
     width: 30%;
     display: flex;
@@ -122,6 +81,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    left: -.8rem;
 }
 
 .text__container {
@@ -137,8 +97,8 @@ body {
 .toggle__btn {
     display: inline-block;
     width: 100%;
-    padding-bottom: 33px;
-    cursor: default;
+    padding-bottom: 3.3rem;
+    cursor: pointer;
     user-select: none;
 }
 
@@ -161,6 +121,12 @@ body {
     border-radius: 50%;
     position: relative;
     text-align: center;
+    cursor: pointer;
+}
+
+.theme__button:hover,
+.theme__button:active {
+    filter: brightness(140%);
 }
 
 .theme__button.slide1 {
@@ -190,7 +156,7 @@ body {
     padding: 3rem 0;
     outline: none;
     border: none;
-    border-radius: .5rem;
+    border-radius: 1rem;
     color: var(--color-white);
     background-color: var(--color-screen--1);
     text-align: end;
@@ -211,8 +177,9 @@ body {
 
 .container__bottom {
     max-width: 100%;
+    width: 100%;
     background-color: var(--color--toggle--1);
-    border-radius: .5rem;
+    border-radius: 1rem;
     padding: 3rem 2rem;
     display: grid;
     grid-gap: 2rem;
@@ -226,9 +193,8 @@ body {
     border: none;
     outline: none;
     background-color: var(--color-key--1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
     font-size: 3.2rem;
     font-weight: 700;
     cursor: pointer;
@@ -238,8 +204,8 @@ body {
 
 .calculator__btn:hover,
 .calculator__btn:active {
-    background-color: var(--color-white);
     transform: translateY(-1px);
+    filter: brightness(120%);
 }
 
 .calculator__btn--blue {
@@ -258,4 +224,40 @@ body {
     box-shadow: .1rem .4rem var(--color--key--shadow);
     color: var(--color-white);
     grid-column: 3/-1;
+}
+
+.attribution {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.attribution a {
+    display: inline-block;
+    color: var(--color-del--1);
+    text-decoration: none;
+    transition: transform .2s linear;
+}
+
+.attribution a:active,
+.attribution a:hover {
+    filter: brightness(120%);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 75em) {
+    .container {
+        min-width: 40%;
+    }
+}
+
+@media (max-width: 56.25em) {
+    .container {
+        min-width: 45%;
+    }
+}
+
+@media (max-width: 31.25em) {
+    .attribution {
+        font-size: 1.4rem;
+    }
 }

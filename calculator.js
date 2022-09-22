@@ -11,25 +11,32 @@ const input = document.querySelector(".input[type=text]")
 const btn1 = document.querySelector(".toggle--1")
 const btn2 = document.querySelector(".toggle--2")
 const btn3 = document.querySelector(".toggle--3")
-
-
+const heading4 = document.querySelector(".heading--4")
+const heading6 =   document.querySelector(".heading--6")
+const btnContainer =   document.querySelector(".button__container");
+const bottomContainer = document.querySelector(".container__bottom");
+const textContainer = document.querySelectorAll(".text__container")
 let isOperator = false;
 
 operandsBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-        output.value = "";
         if (output.value === "0") output.value = e.target.value;
-         else if (output.value.includes(".") && e.target.value.includes(".")) output.value = output.value + "" + e.target.value.replace(".", "");
+         else if (output.value.includes(".") && e.target.value.includes(".")) output.value = output.value + "" +
+          e.target.value.replace(".", "");
          else if (isOperator) {
             isOperator = false;
             output.value = e.target.value;
-        } else if(output.value.length >= 15) return;
-          else output.value = output.value + e.target.value;
+            
+        } else if (output.value.length >= 15) return;
+          else {
+            output.value = output.value + e.target.value;
+          }
     });
 });
 
 let equation = [];
 operatorsBtn.forEach(btn => {
+
     btn.addEventListener("click", (e) => {
         switch(e.target.value) {
             case "=": 
@@ -59,12 +66,16 @@ operatorsBtn.forEach(btn => {
 
 reset.addEventListener("click", (e) => {
     output.value = "";
-    clearTheme();
+    goTo1();
 })
 
 deleteBtn.addEventListener("click", (e) => {
     output.value = output.value.slice(0, -1);
 })
+
+
+
+// CHANGING THEMES
 
 const btnStyle = {
     theme2: {
@@ -77,21 +88,16 @@ const btnStyle = {
         color:  "hsl(52, 100%, 62%)",
         boxShadow:  "0px .4rem hsl(290, 70%, 36%)"
     }  
-    }
+}
 
 const clearTheme = function() {
-    document.querySelector(".heading--4").style.color = "";
-    document.querySelector(".heading--6").style.color = "";
-    input.style.color = ""; 
-    document.querySelector(".button__container").style.backgroundColor = "";
-    document.querySelector(".container__bottom").style.backgroundColor = "";
-    input.style.backgroundColor = "";
-    btn.style.backgroundColor =  "" ;
-    body.style.backgroundColor = "";
-    operandsBtn.forEach(btn =>{
-     btn.style.backgroundColor = "",
-     btn.style.boxShadow = "",
-     btn.style.color = ""
+    [heading4, heading6, input].forEach(el => el.style.color = "");
+    textContainer.forEach(txt => txt.style.color ="");
+    [btnContainer, bottomContainer, input, btn, body].forEach(el => el.style.backgroundColor = "");
+    operandsBtn.forEach(btn => {
+     btn.style.boxShadow = "";
+     btn.style.color = "";
+     btn.style.backgroundColor = "";
     }
      );
     operatorsBtn.forEach(btn => {
@@ -109,11 +115,9 @@ const clearTheme = function() {
 }
 
 const theme2 = function () {
-  document.querySelector(".heading--4").style.color = "black";
-  document.querySelector(".heading--6").style.color = "black";
-  input.style.color = "hsl(0, 0%, 0%)"; 
-  document.querySelector(".button__container").style.backgroundColor = "hsl(0, 5%, 81%)";
-  document.querySelector(".container__bottom").style.backgroundColor = "hsl(0, 5%, 81%)";
+  [heading4, heading6, input].forEach(el => el.style.color = "hsl(0, 0%, 0%)");
+  [btnContainer, bottomContainer].forEach(el => el.style.backgroundColor = "hsl(0, 5%, 81%)");
+  textContainer.forEach(txt => txt.style.color ="hsl(0, 0%, 0%)");
   input.style.backgroundColor = "hsl(0, 0%, 93%)";
   btn.style.backgroundColor =  "hsl(25, 98%, 40%)" ;
   body.style.backgroundColor = "hsl(0, 0%, 90%)";
@@ -128,14 +132,10 @@ const theme2 = function () {
   equalityBtn.style.boxShadow = "0px .4rem hsl(25, 99%, 27%)";
 }
 
-//THEME 3
 const theme3 = function() {
-    document.querySelector(".heading--4").style.color = "hsl(52, 100%, 62%)";
-    document.querySelector(".heading--6").style.color = "hsl(52, 100%, 62%)";
-    input.style.color = "hsl(52, 100%, 62%)"; 
-    document.querySelector(".button__container").style.backgroundColor = "hsl(268, 71%, 12%)";
-    document.querySelector(".container__bottom").style.backgroundColor = "hsl(268, 71%, 12%)";
-    input.style.backgroundColor = "hsl(268, 71%, 12%)";
+  [heading4, heading6, input].forEach(el => el.style.color ="hsl(52, 100%, 62%)");
+  textContainer.forEach(txt => txt.style.color ="hsl(52, 100%, 62%)");
+  [btnContainer, bottomContainer, input].forEach(el => el.style.backgroundColor = "hsl(268, 71%, 12%)");
     btn.style.backgroundColor =  "hsl(176, 100%, 44%)";
     body.style.backgroundColor = "hsl(268, 75%, 9%)";
     operandsBtn.forEach(btn => { Object.assign(btn.style, btnStyle.theme3) });
@@ -153,30 +153,30 @@ const theme3 = function() {
 
 let toggleSwitch = document.querySelector('.theme__button');
 
-    function go_to_1() {
+    function goTo1() {
       toggleSwitch.classList.remove('slide2');
       toggleSwitch.classList.remove('slide3');
       toggleSwitch.classList.add('slide1');
       clearTheme();
     }
 
-    function go_to_2() {
+    function goTo2() {
       toggleSwitch.classList.remove('slide3');
       toggleSwitch.classList.remove('slide1');
       toggleSwitch.classList.add('slide2');
       theme2();
     }
 
-    function go_to_3() {
+    function goTo3() {
       toggleSwitch.classList.add('slide3');
       toggleSwitch.classList.remove('slide2');
       toggleSwitch.classList.remove('slide1');
       theme3();
     }
 
-    btn1.addEventListener("click", go_to_1);
-    btn2.addEventListener("click", go_to_2);
-    btn3.addEventListener("click", go_to_3);
+    btn1.addEventListener("click", goTo1);
+    btn2.addEventListener("click", goTo2);
+    btn3.addEventListener("click", goTo3);
 
 
 

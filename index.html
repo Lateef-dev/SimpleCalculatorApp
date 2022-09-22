@@ -10,86 +10,10 @@
   <title>Frontend Mentor | Calculator app</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <!-- <style>
-    /* .attribution {
-      text-align: center;
-    }
+  <style>
 
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-      font-size: 11px;
-    } */
-    .redButton.horizTranslate2 {
-      -webkit-transition: -webkit-transform 0.1s linear;
-      -webkit-transform: translateX(20px);
-    }
-
-    .redButton.horizTranslate3 {
-      -webkit-transition: -webkit-transform 0.1s linear;
-      -webkit-transform: translateX(40px);
-    }
-
-    .redButton.horizTranslate1 {
-      -webkit-transition: -webkit-transform 0.1s linear;
-      -webkit-transform: translateX(0px);
-    }
-
-    #outerContainer {
-      position: relative;
-      width: 111px;
-      height: 98px;
-      background-color: #4A5B7E;
-    }
-
-    #buttonContainer {
-      background-color: #222D41;
-      width: 71px;
-      height: 28px;
-      position: relative;
-      left: 20px;
-      top: 45px;
-      border-radius: 14px;
-    }
-
-    .redButton {
-      width: 16px;
-      height: 16px;
-      background-color: #DB3D2B;
-      border-radius: 8px;
-      position: relative;
-      top: 6px;
-      left: 6px;
-    }
-
-    #legendTextContainer {
-      left: 22px;
-      display: inline-block;
-      position: absolute;
-      top: 23px;
-      color: #ffffff;
-      font-family: Arial;
-      font-size: 10pt;
-      text-align: center;
-    }
-
-    .legendText {
-      display: inline-block;
-      width: 20px;
-      padding-bottom: 33px;
-      cursor: default;
-      user-select: none;
-    }
-
-    #message {
-      border: 1px solid #cccccc;
-      display: inline-block;
-      padding: 4px;
-      margin-top: 6px;
-      font-family: Arial;
-      font-size: 10pt;
-    }
-  </style> -->
-  <link id="page_sheet" rel="stylesheet" href="css/style.css">
+  </style>
+  <link rel=" stylesheet" href="css/style.css">
   <script defer src="calculator.js"></script>
 </head>
 
@@ -102,9 +26,9 @@
 
         <div class="right__container">
           <div class="text__container">
-            <div class="toggle__btn toggle--1" onclick=" go_to_1()">1</div>
-            <div class=" toggle__btn toggle--2" onclick="go_to_2()">2</div>
-            <div class=" toggle__btn toggle--3" onclick="go_to_3()">3</div>
+            <div class="toggle__btn toggle--1">1</div>
+            <div class=" toggle__btn toggle--2">2</div>
+            <div class=" toggle__btn toggle--3">3</div>
           </div>
 
           <div class="button__container">
@@ -112,20 +36,6 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class=" right">
-              <div class="top">
-                <h5 class="heading--5">1</h5>
-                <h5 class="heading--5">2</h5>
-                <h5 class="heading--5">3</h5>
-              </div>
-              <div class="buttons">
-                <button class="btn btn--1"></button>
-                <button class="btn btn--2"></button>
-                <button class="btn btn--3"></button>
-              </div>
-          </div> -->
-
     </div>
     <form action="#" class="input__field">
       <input disabled type="text" id="output" class="input" value="" placeholder="399,981">
@@ -155,52 +65,10 @@
       <button data-type="operator" value="=" class="calculator__btn calculator__btn--18">=</button>
     </div>
   </div>
-
-  <!-- <script>
-    // let toggleSwitch = document.getElementsByClassName('redButton')[0]
-    let toggleSwitch = document.querySelector('.redButton');
-
-    function go_to_1() {
-      toggleSwitch.classList.add('horizTranslate1');
-      toggleSwitch.classList.remove('horizTranslate2');
-      toggleSwitch.classList.remove('horizTranslate3');
-      document.getElementById("outerContainer").style.backgroundColor = "#4A5B7E"
-      document.getElementById("buttonContainer").style.backgroundColor = "#222D41"
-      document.getElementById("legendTextContainer").style.color = "#ffffff"
-      doStuff(1)
-    }
-
-    function go_to_2() {
-      toggleSwitch.classList.add('horizTranslate2');
-      toggleSwitch.classList.remove('horizTranslate3');
-      toggleSwitch.classList.remove('horizTranslate1');
-      document.getElementById("outerContainer").style.backgroundColor = "#E5E5E5"
-      document.getElementById("buttonContainer").style.backgroundColor = "#D3CCCA"
-      document.getElementById("legendTextContainer").style.color = "#222222"
-      doStuff(2)
-    }
-
-    function go_to_3() {
-      toggleSwitch.classList.add('horizTranslate3');
-      toggleSwitch.classList.remove('horizTranslate2');
-      toggleSwitch.classList.remove('horizTranslate1');
-      document.getElementById("outerContainer").style.backgroundColor = "#000000"
-      document.getElementById("buttonContainer").style.backgroundColor = "#444444"
-      document.getElementById("legendTextContainer").style.color = "#E2D241"
-      doStuff(3)
-    }
-
-    function doStuff(n) {
-      document.getElementById("message").innerHTML = "Switch is in position " + n
-  //your code here...
-  }
-  </script> -->
-  <!-- 
-
- < div class="attribution">
+  <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"> Frontend Mentor</a>.
-      Coded by <a href="#"> Your Name Here</a>.
-      </div> -->
+    Coded by <a href="https://github.com/Lateef-dev/SimpleCalculatorApp.git" target="blank"> Sulaiman Lateef</a>.
+    </di>
 </body>
 
 </html>
