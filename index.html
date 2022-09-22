@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <!-- <style>
+    /* .attribution {
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+      font-size: 11px;
+    } */
+    .redButton.horizTranslate2 {
+      -webkit-transition: -webkit-transform 0.1s linear;
+      -webkit-transform: translateX(20px);
+    }
+
+    .redButton.horizTranslate3 {
+      -webkit-transition: -webkit-transform 0.1s linear;
+      -webkit-transform: translateX(40px);
+    }
+
+    .redButton.horizTranslate1 {
+      -webkit-transition: -webkit-transform 0.1s linear;
+      -webkit-transform: translateX(0px);
+    }
+
+    #outerContainer {
+      position: relative;
+      width: 111px;
+      height: 98px;
+      background-color: #4A5B7E;
+    }
+
+    #buttonContainer {
+      background-color: #222D41;
+      width: 71px;
+      height: 28px;
+      position: relative;
+      left: 20px;
+      top: 45px;
+      border-radius: 14px;
+    }
+
+    .redButton {
+      width: 16px;
+      height: 16px;
+      background-color: #DB3D2B;
+      border-radius: 8px;
+      position: relative;
+      top: 6px;
+      left: 6px;
+    }
+
+    #legendTextContainer {
+      left: 22px;
+      display: inline-block;
+      position: absolute;
+      top: 23px;
+      color: #ffffff;
+      font-family: Arial;
+      font-size: 10pt;
+      text-align: center;
+    }
+
+    .legendText {
+      display: inline-block;
+      width: 20px;
+      padding-bottom: 33px;
+      cursor: default;
+      user-select: none;
+    }
+
+    #message {
+      border: 1px solid #cccccc;
+      display: inline-block;
+      padding: 4px;
+      margin-top: 6px;
+      font-family: Arial;
+      font-size: 10pt;
+    }
+  </style> -->
+  <link id="page_sheet" rel="stylesheet" href="css/style.css">
+  <script defer src="calculator.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="container__top--title">
+      <h4 class="heading--4">calc</h4>
+      <div class="top__title--right">
+        <h6 class="heading--6">theme</h6>
+
+        <div class="right__container">
+          <div class="text__container">
+            <div class="toggle__btn toggle--1" onclick=" go_to_1()">1</div>
+            <div class=" toggle__btn toggle--2" onclick="go_to_2()">2</div>
+            <div class=" toggle__btn toggle--3" onclick="go_to_3()">3</div>
+          </div>
+
+          <div class="button__container">
+            <button class="theme__button"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class=" right">
+              <div class="top">
+                <h5 class="heading--5">1</h5>
+                <h5 class="heading--5">2</h5>
+                <h5 class="heading--5">3</h5>
+              </div>
+              <div class="buttons">
+                <button class="btn btn--1"></button>
+                <button class="btn btn--2"></button>
+                <button class="btn btn--3"></button>
+              </div>
+          </div> -->
+
+    </div>
+    <form action="#" class="input__field">
+      <input disabled type="text" id="output" class="input" value="" placeholder="399,981">
+    </form>
+
+    <div class=" container__bottom">
+      <button data-type="operand" value="7" class="calculator__btn calculator__btn--1">7</button>
+      <button data-type="operand" value="8" class="calculator__btn calculator__btn--2">8</button>
+      <button data-type="operand" value="9" class="calculator__btn calculator__btn--3">9</button>
+      <button data-type="delete" type="reset" value="delete" class="calculator__btn--blue calculator__btn">DEL</button>
+      <button data-type="operand" value="4" class="calculator__btn calculator__btn--5">4</button>
+      <button data-type="operand" value="5" class="calculator__btn calculator__btn--6">5</button>
+      <button data-type="operand" value="6" class="calculator__btn calculator__btn--7">6</button>
+      <button data-type="operator" value="+" class="calculator__btn calculator__btn--8">+</button>
+      <button data-type="operand" value="1" class="calculator__btn calculator__btn--9">1</button>
+      <button data-type="operand" value="2" class="calculator__btn calculator__btn--10">2</button>
+      <button data-type="operand" value="3" class="calculator__btn calculator__btn--11">3</button>
+      <button data-type="operator" value="-" class="calculator__btn calculator__btn--12">-</button>
+      <button data-type="operand" value="." class="calculator__btn calculator__btn--13">.</button>
+      <button data-type="operand" value="0" class="calculator__btn calculator__btn--14">0</button>
+      <button data-type="operator" value="/" class="calculator__btn calculator__btn--15">/</button>
+      <button data-type="operator" value="*" class="calculator__btn calculator__btn--16">x</button>
+      <button data-type="clear" type="reset" value="clear"
+        class="calculator__btn--blue calculator__btn calculator__btn--17">
+        RESET
+      </button>
+      <button data-type="operator" value="=" class="calculator__btn calculator__btn--18">=</button>
+    </div>
+  </div>
+
+  <!-- <script>
+    // let toggleSwitch = document.getElementsByClassName('redButton')[0]
+    let toggleSwitch = document.querySelector('.redButton');
+
+    function go_to_1() {
+      toggleSwitch.classList.add('horizTranslate1');
+      toggleSwitch.classList.remove('horizTranslate2');
+      toggleSwitch.classList.remove('horizTranslate3');
+      document.getElementById("outerContainer").style.backgroundColor = "#4A5B7E"
+      document.getElementById("buttonContainer").style.backgroundColor = "#222D41"
+      document.getElementById("legendTextContainer").style.color = "#ffffff"
+      doStuff(1)
+    }
+
+    function go_to_2() {
+      toggleSwitch.classList.add('horizTranslate2');
+      toggleSwitch.classList.remove('horizTranslate3');
+      toggleSwitch.classList.remove('horizTranslate1');
+      document.getElementById("outerContainer").style.backgroundColor = "#E5E5E5"
+      document.getElementById("buttonContainer").style.backgroundColor = "#D3CCCA"
+      document.getElementById("legendTextContainer").style.color = "#222222"
+      doStuff(2)
+    }
+
+    function go_to_3() {
+      toggleSwitch.classList.add('horizTranslate3');
+      toggleSwitch.classList.remove('horizTranslate2');
+      toggleSwitch.classList.remove('horizTranslate1');
+      document.getElementById("outerContainer").style.backgroundColor = "#000000"
+      document.getElementById("buttonContainer").style.backgroundColor = "#444444"
+      document.getElementById("legendTextContainer").style.color = "#E2D241"
+      doStuff(3)
+    }
+
+    function doStuff(n) {
+      document.getElementById("message").innerHTML = "Switch is in position " + n
+  //your code here...
+  }
+  </script> -->
+  <!-- 
+
+ < div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"> Frontend Mentor</a>.
+      Coded by <a href="#"> Your Name Here</a>.
+      </div> -->
+</body>
+
+</html>
