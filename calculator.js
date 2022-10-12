@@ -1,3 +1,5 @@
+'use strict';
+
 const operandsBtn = document.querySelectorAll("button[data-type=operand]");
 const operatorsBtn = document.querySelectorAll("button[data-type=operator]");
 const reset = document.querySelector("button[data-type=clear]");
@@ -17,26 +19,25 @@ const btnContainer =   document.querySelector(".button__container");
 const bottomContainer = document.querySelector(".container__bottom");
 const textContainer = document.querySelectorAll(".text__container")
 let isOperator = false;
+let equation = [];
 
 operandsBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => {
         if (output.value === "0") output.value = e.target.value;
-         else if (output.value.includes(".") && e.target.value.includes(".")) output.value = output.value + "" +
-          e.target.value.replace(".", "");
-         else if (isOperator) {
+        else if (output.value.includes(".") && e.target.value.includes(".")) 
+            output.value = output.value + "" + e.target.value.replace(".", "");
+        else if (isOperator) {
             isOperator = false;
-            output.value = e.target.value;
-            
-        } else if (output.value.length >= 15) return;
-          else {
+            output.value = e.target.value; 
+        } 
+        else if (output.value.length >= 15) return;
+        else {
             output.value = output.value + e.target.value;
-          }
+        }
     });
 });
 
-let equation = [];
 operatorsBtn.forEach(btn => {
-
     btn.addEventListener("click", (e) => {
         switch(e.target.value) {
             case "=": 
@@ -51,8 +52,7 @@ operatorsBtn.forEach(btn => {
                 if (["*", "+", "-", "/"].includes(lastItem) && isOperator){
                     equation.pop();
                     equation.push(e.target.value);
-                } 
-                
+                }
                 else {
                     equation.push(output.value);
                     equation.push(e.target.value);
@@ -72,8 +72,6 @@ reset.addEventListener("click", (e) => {
 deleteBtn.addEventListener("click", (e) => {
     output.value = output.value.slice(0, -1);
 })
-
-
 
 // CHANGING THEMES
 
